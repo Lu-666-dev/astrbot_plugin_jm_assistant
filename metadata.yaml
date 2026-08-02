@@ -1,9 +1,14 @@
-name: astrbot_plugin_jmcomic
+name: astrbot_plugin_jm_assistant
 display_name: 机长小助手
-desc: 监听 QQ 私聊或白名单/黑名单模式下的群聊 JM 加六位数字车号，查询 JMComic 并发送对应作品 PDF。
+desc: 监听 QQ 私聊或群聊中的 JM 六位数字车号，查询并发送 PDF。
 short_desc: JM 加六位车号自动查询并生成 PDF 文件。
-version: 1.0.0
+version: 1.0.1
 author: Lu-666-dev
+repo: https://github.com/Lu-666-dev/astrbot_plugin_jm_assistant
+tags:
+  - QQ
+  - JMComic
+  - PDF
 support_platforms:
   - aiocqhttp
 astrbot_version: ">=4.26.7"
