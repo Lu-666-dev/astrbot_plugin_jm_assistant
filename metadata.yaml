@@ -3,7 +3,7 @@ display_name: 机长小助手
 desc: 监听 QQ 私聊或白名单/黑名单模式下的群聊 JM 加六位数字车号，查询 JMComic 并发送对应作品 PDF。
 short_desc: JM 加六位车号自动查询并生成 PDF 文件。
 version: 1.0.0
-author: local
+author: Lu-666-dev
 support_platforms:
   - aiocqhttp
 astrbot_version: ">=4.26.7"
