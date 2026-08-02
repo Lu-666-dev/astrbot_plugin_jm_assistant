@@ -44,3 +44,13 @@ JM350234
 本插件原创代码采用 [MIT License](LICENSE)。
 
 本插件通过 `requirements.txt` 依赖并调用 [JMComic-Crawler-Python](https://github.com/hect0x7/JMComic-Crawler-Python)，未复制或重新分发该项目的源代码。JMComic-Crawler-Python 使用 MIT License，版权归 `hect0x7` 所有；使用该依赖时应同时遵守其许可证要求。
+
+## 发布发行版
+
+本仓库配置了 GitHub Actions 自动打包发行版。发布新版本时：
+
+1. 更新 `metadata.yaml` 中的 `version`。
+2. 提交并推送代码。
+3. 创建并推送对应的 Git 标签，例如 `v1.0.0`。
+
+推送 `v*` 标签后，GitHub Actions 会自动生成 `astrbot_plugin_jmcomic-v版本号.zip` 并创建 GitHub Release。压缩包内会保留 `astrbot_plugin_jmcomic/` 作为根目录，便于 AstrBot 直接安装。
