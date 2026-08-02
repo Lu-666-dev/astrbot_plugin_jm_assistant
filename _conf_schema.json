@@ -1,0 +1,71 @@
+{
+  "enabled": {
+    "description": "启用插件",
+    "type": "bool",
+    "default": true,
+    "hint": "关闭后不会监听或处理 QQ 私聊和群聊中的 JM 加六位数字。"
+  },
+  "client_impl": {
+    "description": "JMComic 客户端",
+    "type": "string",
+    "default": "html",
+    "options": ["html", "api"],
+    "hint": "默认使用网页端配置；如果当前网络环境访问网页端失败，可以切换为 API。"
+  },
+  "avs_cookie": {
+    "description": "AVS Cookie",
+    "type": "string",
+    "default": "",
+    "hint": "可选。部分作品需要登录状态才能访问，只填写对应 JM 域名下的 AVS Cookie。"
+  },
+  "proxy": {
+    "description": "网络代理",
+    "type": "string",
+    "default": "",
+    "hint": "可选，例如 127.0.0.1:7890；留空时使用 JMComic 默认网络配置。"
+  },
+  "image_concurrency": {
+    "description": "图片下载并发数",
+    "type": "int",
+    "default": 6,
+    "min": 1,
+    "max": 30,
+    "hint": "数值越大下载越快，也会增加网络和目标站点压力。"
+  },
+  "photo_concurrency": {
+    "description": "章节下载并发数",
+    "type": "int",
+    "default": 2,
+    "min": 1,
+    "max": 8,
+    "hint": "控制同时下载的章节数量。"
+  },
+  "group_access_mode": {
+    "description": "群聊触发模式",
+    "type": "string",
+    "options": ["whitelist", "blacklist"],
+    "labels": ["白名单模式", "黑名单模式"],
+    "default": "whitelist",
+    "hint": "白名单模式：只能触发白名单群；黑名单模式：除黑名单外的其他群都能触发。私聊不受此设置影响。"
+  },
+  "allowed_group_ids": {
+    "description": "群聊白名单",
+    "type": "string",
+    "default": "",
+    "hint": "白名单模式生效。多个群号用逗号、空格、分号或换行分隔；黑名单模式下此项忽略。"
+  },
+  "blocked_group_ids": {
+    "description": "群聊黑名单",
+    "type": "string",
+    "default": "",
+    "hint": "黑名单模式生效。多个群号用逗号、空格、分号或换行分隔；白名单模式下此项忽略。"
+  },
+  "send_retry_count": {
+    "description": "发送重试次数",
+    "type": "int",
+    "default": 3,
+    "min": 1,
+    "max": 5,
+    "hint": "PDF 文件发送失败时的最大尝试次数。"
+  }
+}
