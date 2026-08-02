@@ -38,3 +38,9 @@ JM350234
 本插件使用 [JMComic-Crawler-Python](https://github.com/hect0x7/JMComic-Crawler-Python) 提供的 `jmcomic` Python API 和其内置 `Feature.export_pdf` 导出 PDF。`img2pdf` 依赖已写入 `requirements.txt`，AstrBot 加载插件时会按标准插件依赖流程自动安装；JMComic 官方文档中的异步下载接口为 `download_album_async()`。
 
 本插件仅实现 QQ `aiocqhttp` 适配器。私聊默认允许触发；群聊白名单模式下仅允许白名单群触发，黑名单模式下允许除黑名单外的群触发。使用者应遵守相关平台、站点和当地法律法规的内容与访问规则。
+
+## 许可证与第三方依赖
+
+本插件原创代码采用 [MIT License](LICENSE)。
+
+本插件通过 `requirements.txt` 依赖并调用 [JMComic-Crawler-Python](https://github.com/hect0x7/JMComic-Crawler-Python)，未复制或重新分发该项目的源代码。JMComic-Crawler-Python 使用 MIT License，版权归 `hect0x7` 所有；使用该依赖时应同时遵守其许可证要求。
