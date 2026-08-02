@@ -3,7 +3,7 @@
     "description": "启用插件",
     "type": "bool",
     "default": true,
-    "hint": "关闭后不会监听或处理 QQ 私聊和群聊中的 JM 加六位数字。"
+    "hint": "关闭后不会监听或处理 QQ 私聊和群聊中的 JM 加连续数字。"
   },
   "client_impl": {
     "description": "JMComic 客户端",

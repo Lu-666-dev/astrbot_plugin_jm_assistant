@@ -17,9 +17,9 @@ from astrbot.api.message_components import File
 from astrbot.api.star import Context, Star
 from astrbot.core.utils.astrbot_path import get_astrbot_temp_path
 
-PLUGIN_NAME = "astrbot_plugin_jmcomic"
+PLUGIN_NAME = "astrbot_plugin_jm_assistant"
 ALBUM_ID_PATTERN = re.compile(
-    r"(?<![A-Za-z0-9_])JM(\d{6})(?![A-Za-z0-9_])",
+    r"(?<![A-Za-z0-9_])JM([0-9]+)(?![A-Za-z0-9_])",
     re.IGNORECASE,
 )
 GROUP_ID_SEPARATOR_PATTERN = re.compile(r"[\s,，;；]+")
@@ -29,13 +29,13 @@ PDF_CLEANUP_RETRY_INTERVAL_SECONDS = 5
 
 
 def extract_album_id(message: str) -> str | None:
-    """Extract the first JM-prefixed six-digit album ID from a message.
+    """Extract the first JM-prefixed numeric album ID from a message.
 
     Args:
         message: Plain-text message received from the platform.
 
     Returns:
-        The first six-digit ID after a JM prefix, or None when absent.
+        The first numeric ID after a JM prefix, or None when absent.
     """
     match = ALBUM_ID_PATTERN.search(message)
     return match.group(1) if match else None
@@ -130,7 +130,7 @@ class CaptainAssistantPlugin(Star):
     @filter.platform_adapter_type(filter.PlatformAdapterType.AIOCQHTTP)
     @filter.regex(ALBUM_ID_PATTERN)
     async def on_album_id(self, event: AstrMessageEvent) -> None:
-        """Handle a JM-prefixed six-digit ID in a QQ private or group message."""
+        """Handle a JM-prefixed numeric ID in a QQ message."""
         if not self.enabled:
             return
 
@@ -160,7 +160,7 @@ class CaptainAssistantPlugin(Star):
 
         Args:
             event: QQ message event that triggered the lookup.
-            album_id: Six-digit JMComic album ID.
+            album_id: Numeric JMComic album ID.
         """
         temp_parent = Path(get_astrbot_temp_path())
         temp_parent.mkdir(parents=True, exist_ok=True)

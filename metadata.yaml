@@ -1,7 +1,7 @@
 name: astrbot_plugin_jm_assistant
 display_name: 机长小助手
-desc: 监听 QQ 私聊或群聊中的 JM 六位数字车号，查询并发送 PDF。
-short_desc: JM 加六位车号自动查询并生成 PDF 文件。
+desc: 监听 QQ 私聊或群聊中的 JM 连续数字车号，查询并发送 PDF。
+short_desc: JM 加连续数字车号自动查询并生成 PDF 文件。
 version: 1.0.1
 author: Lu-666-dev
 repo: https://github.com/Lu-666-dev/astrbot_plugin_jm_assistant

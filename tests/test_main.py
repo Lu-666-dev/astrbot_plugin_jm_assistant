@@ -103,15 +103,18 @@ class FakeEvent:
         self.sent.append(result)
 
 
-def test_extract_first_standalone_six_digit_id() -> None:
+def test_extract_first_standalone_numeric_id() -> None:
     assert extract_album_id("请查一下 JM350234，谢谢") == "350234"
-    assert extract_album_id("jm350234 和 JM123456") == "350234"
+    assert extract_album_id("jm350234 和 JM1234567") == "350234"
+    assert extract_album_id("请查一下 jm1234567，谢谢") == "1234567"
+    assert extract_album_id("请查一下 JM12345678901234567890，谢谢") == "12345678901234567890"
+    assert extract_album_id("JM123456789，后面停止") == "123456789"
 
 
-def test_requires_jm_prefix_and_does_not_match_longer_tokens() -> None:
+def test_requires_jm_prefix_and_numeric_suffix() -> None:
     assert extract_album_id("350234") is None
     assert extract_album_id("1234567") is None
-    assert extract_album_id("JM1234567") is None
+    assert extract_album_id("JM") is None
     assert extract_album_id("编号 12345") is None
 
 
